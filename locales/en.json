@@ -1,0 +1,184 @@
+{
+  "app": {
+    "title": "𝒆 𝑺𝒂𝒉𝒚𝒐𝒈𝒊 - Citizen Complaint Portal",
+    "subtitle": "Government of India | Digital India Initiative",
+    "tagline": "ʏᴏᴜʀ ᴠᴏɪᴄᴇ, ᴏᴜʀ ʀᴇꜱᴘᴏɴꜱɪʙɪʟɪᴛʏ"
+  },
+  "header": {
+    "home": "Home",
+    "complaints": "Complaints",
+    "track": "Track",
+    "about": "About Us",
+    "contact": "Contact",
+    "login": "Login",
+    "dashboard": "Dashboard"
+  },
+  "nav": {
+    "services": "Services",
+    "team": "Our Team",
+    "trackStatus": "Track Status"
+  },
+  "hero": {
+    "title": "𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝒆 𝑺𝒂𝒉𝒚𝒐𝒈𝒊",
+    "subtitle": "ʏᴏᴜʀ ᴠᴏɪᴄᴇ ᴍᴀᴛᴛᴇʀꜱ - ʀᴇᴘᴏʀᴛ, ᴛʀᴀᴄᴋ ᴀɴᴅ ʀᴇꜱᴏʟᴠᴇ ᴄɪᴠɪᴄ ɪꜱꜱᴜᴇꜱ ᴡɪᴛʜ ᴀɪ-ᴘᴏᴡᴇʀᴇᴅ ᴛᴇᴄʜɴᴏʟᴏɢʏ",
+    "fileComplaint": "File Complaint",
+    "fileNewComplaint": "File New Complaint",
+    "trackComplaint": "Track Complaint",
+    "statistics": "Statistics"
+  },
+  "stats": {
+    "totalComplaints": "Total Complaints",
+    "resolved": "Resolved",
+    "pending": "Pending",
+    "avgResolutionTime": "Avg Resolution Time",
+    "days": "days"
+  },
+  "complaint": {
+    "form": {
+      "title": "File New Complaint",
+      "subtitle": "Please fill out the detailed complaint information form",
+      "userDetails": "Your Details",
+      "name": "Your Name",
+      "namePlaceholder": "Enter full name",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email address",
+      "phone": "Phone Number",
+      "phonePlaceholder": "10 digit mobile number",
+      "state": "State",
+      "city": "City",
+      "pincode": "PIN Code",
+      "pincodePlaceholder": "Enter 6-digit pincode",
+      "area": "Area",
+      "areaPlaceholder": "Enter area or it will be auto-filled from PIN code",
+      "complaintTitle": "Complaint Title",
+      "complaintTitlePlaceholder": "Brief description of the issue",
+      "address": "Complaint Address",
+      "addressPlaceholder": "Enter complete complaint address",
+      "category": "Select Category",
+      "categoryPlaceholder": "Choose complaint category",
+      "priority": "Priority Level",
+      "priorityPlaceholder": "Select priority level",
+      "department": "Department",
+      "description": "Complaint Description",
+      "descriptionPlaceholder": "Please provide detailed description of your complaint... or press microphone to speak",
+      "location": "Location",
+      "locationPlaceholder": "Location of incident",
+      "attachments": "Attachments (Optional)",
+      "attachmentsHint": "Upload photos, videos or documents (Max 5 files, 10MB each)",
+      "securityVerification": "Security Verification",
+      "captchaPlaceholder": "Enter the code above",
+      "submit": "Submit Complaint",
+      "submitting": "Submitting...",
+      "reset": "Reset Form",
+      "cancel": "Cancel"
+    },
+    "categories": {
+      "road": "Road & Transport",
+      "water": "Water Supply",
+      "electricity": "Electricity",
+      "garbage": "Garbage Management",
+      "drainage": "Drainage",
+      "streetlight": "Street Light",
+      "pollution": "Pollution",
+      "publicSafety": "Public Safety",
+      "corruption": "Corruption",
+      "other": "Other"
+    },
+    "priorities": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "urgent": "Urgent"
+    },
+    "status": {
+      "submitted": "Submitted",
+      "inProgress": "In Progress",
+      "resolved": "Resolved",
+      "closed": "Closed",
+      "rejected": "Rejected"
+    }
+  },
+  "track": {
+    "title": "Track Complaint",
+    "complaintId": "Complaint ID",
+    "complaintIdPlaceholder": "Enter your complaint ID",
+    "search": "Search",
+    "noResult": "No complaint found",
+    "details": "Complaint Details",
+    "timeline": "Timeline",
+    "updates": "Updates"
+  },
+  "dashboard": {
+    "welcome": "Welcome",
+    "myComplaints": "My Complaints",
+    "analytics": "Analytics",
+    "settings": "Settings",
+    "logout": "Logout",
+    "recentComplaints": "Recent Complaints",
+    "noComplaints": "No complaints found"
+  },
+  "admin": {
+    "login": "Admin Login"
+  },
+  "messages": {
+    "success": "Success!",
+    "error": "Error!",
+    "complaintSubmitted": "Your complaint has been successfully registered",
+    "complaintId": "Complaint ID",
+    "trackingInfo": "Please save this ID for future reference",
+    "requiredField": "This field is required",
+    "invalidEmail": "Invalid email address",
+    "invalidPhone": "Invalid phone number",
+    "networkError": "Network error. Please try again",
+    "uploadError": "File upload failed",
+    "fileTooLarge": "File size should not exceed 10MB"
+  },
+  "footer": {
+    "about": "About Us",
+    "aboutText": "𝒆 𝑺𝒂𝒉𝒚𝒐𝒈𝒊 is a Digital India initiative that helps citizens connect with the government",
+    "quickLinks": "Quick Links",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "faq": "FAQ",
+    "contact": "Contact Us",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "copyright": "© 2025 𝒆 𝑺𝒂𝒉𝒚𝒐𝒈𝒊 - Government of India. All rights reserved.",
+    "digitalIndia": "Digital India"
+  },
+  "common": {
+    "loading": "Loading...",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "download": "Download",
+    "print": "Print",
+    "share": "Share",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "viewMore": "View More",
+    "viewLess": "View Less",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "settings": {
+    "language": "Language",
+    "theme": "Theme",
+    "light": "Light Mode",
+    "dark": "Dark Mode",
+    "notifications": "Notifications",
+    "emailNotifications": "Email Notifications",
+    "smsNotifications": "SMS Notifications",
+    "profile": "Profile",
+    "changePassword": "Change Password",
+    "security": "Security"
+  }
+}

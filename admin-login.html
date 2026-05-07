@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝒆 𝑺𝒂𝒉𝒚𝒐𝒈𝒊 Admin Login</title>
+    <style>
+        :root {
+            --navy: #102542;
+            --blue: #1f4e79;
+            --gold: #f0b429;
+            --bg: #eef3f9;
+            --card: #ffffff;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --error-bg: #fdecec;
+            --error-text: #b42318;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 20px;
+            background: radial-gradient(circle at top, #dbeafe 0%, var(--bg) 45%, #f8fafc 100%);
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            color: var(--text);
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 430px;
+            background: var(--card);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(16, 37, 66, 0.18);
+            border: 1px solid rgba(16, 37, 66, 0.08);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--navy), var(--blue));
+            color: white;
+            padding: 28px;
+        }
+
+        .header h1 {
+            margin: 0 0 8px;
+            font-size: 1.8rem;
+        }
+
+        .header p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .content {
+            padding: 28px;
+        }
+
+        .error {
+            display: none;
+            margin-bottom: 16px;
+            padding: 12px 14px;
+            border-radius: 12px;
+            background: var(--error-bg);
+            color: var(--error-text);
+            font-weight: 600;
+        }
+
+        body.invalid .error {
+            display: block;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px 14px;
+            border-radius: 12px;
+            border: 1px solid #d1d5db;
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        button {
+            width: 100%;
+            border: none;
+            border-radius: 999px;
+            padding: 13px 16px;
+            font-size: 1rem;
+            font-weight: 800;
+            background: var(--gold);
+            color: #1a1a1a;
+            cursor: pointer;
+        }
+
+        .hint {
+            margin-top: 14px;
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        .link {
+            display: inline-block;
+            margin-top: 18px;
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-card">
+        <div class="header">
+            <h1>Admin Login</h1>
+            <p>Complaint dashboard dekhne ke liye login karein.</p>
+        </div>
+        <div class="content">
+            <div class="error">Invalid username or password.</div>
+            <form id="adminLoginForm" method="post" action="/admin/login">
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text" placeholder="Enter admin username" required>
+
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" placeholder="Enter admin password" required>
+
+                <button type="submit">Login to Admin Panel</button>
+            </form>
+            <div class="hint">
+                Default login abhi app config me set hai. Zarurat ho to baad me change kar sakte hain.
+            </div>
+            <a class="link" id="adminBackToSiteLink" href="/">Back to main site</a>
+        </div>
+    </div>
+
+    <script>
+        const DEFAULT_ADMIN_BACKEND_ORIGIN = 'http://127.0.0.1:5050';
+
+        function normalizeBackendOrigin(value) {
+            const trimmed = String(value || '').trim().replace(/\/+$/, '');
+            if (!trimmed) return '';
+            if (!/^https?:\/\//i.test(trimmed)) return '';
+            return trimmed;
+        }
+
+        function getAdminBackendOrigin() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlOverride = normalizeBackendOrigin(urlParams.get('backend'));
+            if (urlOverride) {
+                return urlOverride;
+            }
+
+            const protocol = window.location.protocol || '';
+            if (protocol === 'http:' || protocol === 'https:') {
+                return window.location.origin;
+            }
+
+            return DEFAULT_ADMIN_BACKEND_ORIGIN;
+        }
+
+        function buildAdminBackendUrl(path) {
+            const normalizedPath = String(path || '').startsWith('/') ? String(path || '') : `/${String(path || '')}`;
+            return `${getAdminBackendOrigin()}${normalizedPath}`;
+        }
+
+        function redirectToHostedAdminLoginIfNeeded() {
+            const backendOrigin = getAdminBackendOrigin();
+            const currentOrigin = window.location.origin || '';
+            const protocol = window.location.protocol || '';
+            const shouldRedirect = !(protocol === 'http:' || protocol === 'https:') || currentOrigin !== backendOrigin;
+            if (!shouldRedirect) {
+                return;
+            }
+
+            const params = new URLSearchParams(window.location.search);
+            params.set('backend', backendOrigin);
+            const targetUrl = `${buildAdminBackendUrl('/admin/login')}?${params.toString()}`;
+            window.location.replace(targetUrl);
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('error') === 'invalid') {
+            document.body.classList.add('invalid');
+        }
+
+        redirectToHostedAdminLoginIfNeeded();
+
+        const form = document.getElementById('adminLoginForm');
+        if (form) {
+            form.action = buildAdminBackendUrl('/admin/login');
+        }
+
+        const backLink = document.getElementById('adminBackToSiteLink');
+        if (backLink) {
+            backLink.href = buildAdminBackendUrl('/');
+        }
+    </script>
+</body>
+</html>

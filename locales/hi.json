@@ -1,0 +1,184 @@
+{
+  "app": {
+    "title": "𝒆 𝑺𝒂𝒉𝒚𝒐𝒈𝒊 - नागरिक शिकायत पोर्टल",
+    "subtitle": "भारत सरकार | डिजिटल इंडिया पहल",
+    "tagline": "ʏᴏᴜʀ ᴠᴏɪᴄᴇ, ᴏᴜʀ ʀᴇꜱᴘᴏɴꜱɪʙɪʟɪᴛʏ"
+  },
+  "header": {
+    "home": "मुख्य पृष्ठ",
+    "complaints": "शिकायतें",
+    "track": "ट्रैक करें",
+    "about": "हमारे बारे में",
+    "contact": "संपर्क करें",
+    "login": "लॉगिन",
+    "dashboard": "डैशबोर्ड"
+  },
+  "nav": {
+    "services": "सेवाएं",
+    "team": "हमारी टीम",
+    "trackStatus": "स्टेटस ट्रैक करें"
+  },
+  "hero": {
+    "title": "𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝒆 𝑺𝒂𝒉𝒚𝒐𝒈𝒊",
+    "subtitle": "ʏᴏᴜʀ ᴠᴏɪᴄᴇ ᴍᴀᴛᴛᴇʀꜱ - ʀᴇᴘᴏʀᴛ, ᴛʀᴀᴄᴋ ᴀɴᴅ ʀᴇꜱᴏʟᴠᴇ ᴄɪᴠɪᴄ ɪꜱꜱᴜᴇꜱ ᴡɪᴛʜ ᴀɪ-ᴘᴏᴡᴇʀᴇᴅ ᴛᴇᴄʜɴᴏʟᴏɢʏ",
+    "fileComplaint": "शिकायत दर्ज करें",
+    "fileNewComplaint": "नई शिकायत दर्ज करें",
+    "trackComplaint": "शिकायत ट्रैक करें",
+    "statistics": "आंकड़े"
+  },
+  "stats": {
+    "totalComplaints": "कुल शिकायतें",
+    "resolved": "हल की गई",
+    "pending": "लंबित",
+    "avgResolutionTime": "औसत समाधान समय",
+    "days": "दिन"
+  },
+  "complaint": {
+    "form": {
+      "title": "नई शिकायत दर्ज करें",
+      "subtitle": "कृपया शिकायत की विस्तृत जानकारी भरें",
+      "userDetails": "आपकी जानकारी",
+      "name": "आपका नाम",
+      "namePlaceholder": "पूरा नाम दर्ज करें",
+      "email": "ईमेल पता",
+      "emailPlaceholder": "अपना ईमेल पता दर्ज करें",
+      "phone": "फ़ोन नंबर",
+      "phonePlaceholder": "10 अंकों का मोबाइल नंबर",
+      "state": "राज्य",
+      "city": "शहर",
+      "pincode": "पिन कोड",
+      "pincodePlaceholder": "6 अंकों का पिनकोड दर्ज करें",
+      "area": "क्षेत्र",
+      "areaPlaceholder": "क्षेत्र दर्ज करें या पिन कोड से अपने आप भर जाएगा",
+      "complaintTitle": "शिकायत शीर्षक",
+      "complaintTitlePlaceholder": "समस्या का संक्षिप्त विवरण",
+      "address": "शिकायत का पता",
+      "addressPlaceholder": "शिकायत का पूरा पता दर्ज करें",
+      "category": "श्रेणी",
+      "categoryPlaceholder": "शिकायत की श्रेणी चुनें",
+      "priority": "प्राथमिकता स्तर",
+      "priorityPlaceholder": "प्राथमिकता स्तर चुनें",
+      "department": "विभाग",
+      "description": "विस्तृत विवरण",
+      "descriptionPlaceholder": "कृपया अपनी शिकायत का विस्तृत विवरण दें... या माइक्रोफोन दबाकर बोलें",
+      "location": "स्थान",
+      "locationPlaceholder": "घटना का स्थान",
+      "attachments": "सहायक फाइलें",
+      "attachmentsHint": "फोटो, वीडियो या दस्तावेज़ अपलोड करें (अधिकतम 5 फाइलें, 10MB प्रत्येक)",
+      "securityVerification": "सुरक्षा सत्यापन",
+      "captchaPlaceholder": "ऊपर दिया गया कोड दर्ज करें",
+      "submit": "शिकायत सबमिट करें",
+      "submitting": "सबमिट हो रहा है...",
+      "reset": "फॉर्म रीसेट करें",
+      "cancel": "रद्द करें"
+    },
+    "categories": {
+      "road": "सड़क और परिवहन",
+      "water": "जल आपूर्ति",
+      "electricity": "बिजली",
+      "garbage": "कचरा प्रबंधन",
+      "drainage": "जल निकासी",
+      "streetlight": "स्ट्रीट लाइट",
+      "pollution": "प्रदूषण",
+      "publicSafety": "सार्वजनिक सुरक्षा",
+      "corruption": "भ्रष्टाचार",
+      "other": "अन्य"
+    },
+    "priorities": {
+      "low": "कम",
+      "medium": "मध्यम",
+      "high": "उच्च",
+      "urgent": "अत्यावश्यक"
+    },
+    "status": {
+      "submitted": "प्रस्तुत",
+      "inProgress": "प्रगति में",
+      "resolved": "हल हो गया",
+      "closed": "बंद",
+      "rejected": "अस्वीकृत"
+    }
+  },
+  "track": {
+    "title": "शिकायत ट्रैक करें",
+    "complaintId": "शिकायत आईडी",
+    "complaintIdPlaceholder": "अपनी शिकायत आईडी दर्ज करें",
+    "search": "खोजें",
+    "noResult": "कोई शिकायत नहीं मिली",
+    "details": "शिकायत विवरण",
+    "timeline": "समयरेखा",
+    "updates": "अपडेट"
+  },
+  "dashboard": {
+    "welcome": "स्वागत है",
+    "myComplaints": "मेरी शिकायतें",
+    "analytics": "विश्लेषण",
+    "settings": "सेटिंग्स",
+    "logout": "लॉगआउट",
+    "recentComplaints": "हाल की शिकायतें",
+    "noComplaints": "कोई शिकायत नहीं मिली"
+  },
+  "admin": {
+    "login": "एडमिन लॉगिन"
+  },
+  "messages": {
+    "success": "सफलता!",
+    "error": "त्रुटि!",
+    "complaintSubmitted": "आपकी शिकायत सफलतापूर्वक दर्ज की गई है",
+    "complaintId": "शिकायत आईडी",
+    "trackingInfo": "कृपया भविष्य के संदर्भ के लिए इस आईडी को सहेजें",
+    "requiredField": "यह फ़ील्ड आवश्यक है",
+    "invalidEmail": "अमान्य ईमेल पता",
+    "invalidPhone": "अमान्य फ़ोन नंबर",
+    "networkError": "नेटवर्क त्रुटि। कृपया पुनः प्रयास करें",
+    "uploadError": "फ़ाइल अपलोड विफल",
+    "fileTooLarge": "फ़ाइल का आकार 10MB से अधिक नहीं होना चाहिए"
+  },
+  "footer": {
+    "about": "हमारे बारे में",
+    "aboutText": "𝒆 𝑺𝒂𝒉𝒚𝒐𝒈𝒊 एक डिजिटल इंडिया पहल है जो नागरिकों को सरकार के साथ जुड़ने में मदद करती है",
+    "quickLinks": "त्वरित लिंक",
+    "privacy": "गोपनीयता नीति",
+    "terms": "नियम और शर्तें",
+    "faq": "अक्सर पूछे जाने वाले प्रश्न",
+    "contact": "संपर्क करें",
+    "email": "ईमेल",
+    "phone": "फ़ोन",
+    "address": "पता",
+    "copyright": "© 2025 𝒆 𝑺𝒂𝒉𝒚𝒐𝒈𝒊 - भारत सरकार। सर्वाधिकार सुरक्षित।",
+    "digitalIndia": "डिजिटल इंडिया"
+  },
+  "common": {
+    "loading": "लोड हो रहा है...",
+    "search": "खोजें",
+    "filter": "फ़िल्टर करें",
+    "sort": "क्रमबद्ध करें",
+    "download": "डाउनलोड करें",
+    "print": "प्रिंट करें",
+    "share": "साझा करें",
+    "edit": "संपादित करें",
+    "delete": "हटाएं",
+    "save": "सहेजें",
+    "cancel": "रद्द करें",
+    "confirm": "पुष्टि करें",
+    "close": "बंद करें",
+    "back": "वापस जाएं",
+    "next": "आगे",
+    "previous": "पिछला",
+    "viewMore": "और देखें",
+    "viewLess": "कम देखें",
+    "yes": "हां",
+    "no": "नहीं"
+  },
+  "settings": {
+    "language": "भाषा",
+    "theme": "थीम",
+    "light": "लाइट मोड",
+    "dark": "डार्क मोड",
+    "notifications": "सूचनाएं",
+    "emailNotifications": "ईमेल सूचनाएं",
+    "smsNotifications": "SMS सूचनाएं",
+    "profile": "प्रोफ़ाइल",
+    "changePassword": "पासवर्ड बदलें",
+    "security": "सुरक्षा"
+  }
+}

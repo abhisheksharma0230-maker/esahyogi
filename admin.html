@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝒆 𝑺𝒂𝒉𝒚𝒐𝒈𝒊 Admin Viewer</title>
+    <style>
+        :root {
+            --navy: #102542;
+            --blue: #1f4e79;
+            --gold: #f0b429;
+            --bg: #f5f7fb;
+            --card: #ffffff;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --border: #d8dee9;
+            --success: #0f766e;
+            --warning: #b45309;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: linear-gradient(180deg, #eef4fb 0%, #f9fbfd 100%);
+            color: var(--text);
+        }
+
+    
+        .hero {
+            background: linear-gradient(135deg, var(--navy), var(--blue));
+            color: white;
+            padding: 24px;
+            border-radius: 18px;
+            box-shadow: 0 18px 40px rgba(16, 37, 66, 0.18);
+        }
+
+        .hero h1 {
+            margin: 0 0 8px;
+            font-size: 2rem;
+        }
+
+        .hero p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.88);
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 999px;
+            padding: 10px 18px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: #1a1a1a;
+        }
+
+        .btn-danger {
+            background: #b42318;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.18);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.14);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.22);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin: 22px 0;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 18px;
+            box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+        }
+
+        .stat-label {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .stat-value {
+            margin-top: 8px;
+            font-size: 1.9rem;
+            font-weight: 800;
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .search {
+            flex: 1;
+            min-width: 240px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 14px;
+            font-size: 1rem;
+        }
+
+        .status {
+            padding: 12px 14px;
+            border-radius: 12px;
+            margin-bottom: 14px;
+            display: none;
+        }
+
+        .status.show {
+            display: block;
+        }
+
+        .status.info {
+            background: #e8f1ff;
+            color: #174ea6;
+        }
+
+        .status.error {
+            background: #fdecec;
+            color: #b42318;
+        }
+
+        .danger-note {
+            margin: 14px 0 0;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.92rem;
+        }
+
+        .table-wrap {
+            overflow: auto;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 1000px;
+        }
+
+        th, td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #edf2f7;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: #f8fafc;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            font-size: 0.92rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .badge.pending {
+            background: #fff7e6;
+            color: var(--warning);
+        }
+
+        .badge.submitted {
+            background: #fff7e6;
+            color: var(--warning);
+        }
+
+        .badge.processing {
+            background: #e8f1ff;
+            color: #174ea6;
+        }
+
+        .badge.resolved {
+            background: #ecfdf3;
+            color: var(--success);
+        }
+
+        .status-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .status-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .status-btn {
+            border: 1px solid var(--border);
+            background: #f8fafc;
+            color: var(--text);
+            border-radius: 999px;
+            padding: 7px 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .status-btn.submitted {
+            border-color: #f3d38b;
+            color: #8a5a00;
+            background: #fff8e8;
+        }
+
+        .status-btn.processing {
+            border-color: #a9c5ff;
+            color: #174ea6;
+            background: #eef4ff;
+        }
+
+        .status-btn.resolved {
+            border-color: #a7e0bf;
+            color: #0f766e;
+            background: #effdf5;
+        }
+
+        .status-btn.active {
+            box-shadow: inset 0 0 0 2px rgba(16, 37, 66, 0.12);
+        }
+
+        .status-btn:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+
+        .row-delete-btn {
+            border: 1px solid rgba(180, 35, 24, 0.16);
+            background: linear-gradient(135deg, #fff1f2, #fee2e2);
+            color: #b42318;
+            border-radius: 999px;
+            padding: 8px 12px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .row-delete-btn:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+
+        .muted {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .wrap {
+                padding: 16px;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <section class="hero">
+            <h1>Complaint Data Viewer</h1>
+            <p>Yahan se aap MySQL me save hui complaints dekh, status update, aur selective delete kar sakte ho.</p>
+            <div class="actions">
+                <button class="btn btn-primary" onclick="loadComplaints()">Refresh Data</button>
+                <a class="btn btn-secondary" id="adminLogoutLink" href="/admin/logout">Logout</a>
+                <a class="btn btn-secondary" id="adminMainSiteLink" href="/">Open Main Site</a>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="card">
+                <div class="stat-label">Total Complaints</div>
+                <div class="stat-value" id="totalCount">0</div>
+            </div>
+            <div class="card">
+                <div class="stat-label">Submitted</div>
+                <div class="stat-value" id="submittedCount">0</div>
+            </div>
+            <div class="card">
+                <div class="stat-label">Processing</div>
+                <div class="stat-value" id="processingCount">0</div>
+            </div>
+            <div class="card">
+                <div class="stat-label">Resolved Complaints</div>
+                <div class="stat-value" id="resolvedCount">0</div>
+            </div>
+        </section>
+
+        <div id="statusBox" class="status info"></div>
+
+        <section class="card">
+            <div class="toolbar">
+                <input id="searchInput" class="search" type="text" placeholder="Search by tracking ID, name, phone, title, city..." />
+                <button class="btn btn-primary" onclick="renderComplaints()">Apply Filter</button>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tracking ID</th>
+                            <th>Name</th>
+                            <th>Contact</th>
+                            <th>Complaint</th>
+                            <th>Location</th>
+                            <th>Status Flow</th>
+                            <th>Actions</th>
+                            <th>Files</th>
+                            <th>Created</th>
+                        </tr>
+                    </thead>
+                    <tbody id="complaintsTableBody">
+                        <tr>
+                            <td colspan="10" class="muted">Loading complaints...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        let allComplaints = [];
+        const updatingComplaintIds = new Set();
+        const DEFAULT_ADMIN_BACKEND_ORIGIN = 'http://127.0.0.1:5050';
+
+        function setStatus(message, type) {
+            const box = document.getElementById('statusBox');
+            box.className = 'status show ' + type;
+            box.textContent = message;
+        }
+
+        function normalizeBackendOrigin(value) {
+            const trimmed = String(value || '').trim().replace(/\/+$/, '');
+            if (!trimmed) return '';
+            if (!/^https?:\/\//i.test(trimmed)) return '';
+            return trimmed;
+        }
+
+        function getAdminBackendOrigin() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlOverride = normalizeBackendOrigin(urlParams.get('backend'));
+            if (urlOverride) {
+                return urlOverride;
+            }
+
+            const protocol = window.location.protocol || '';
+            if (protocol === 'http:' || protocol === 'https:') {
+                return window.location.origin;
+            }
+
+            return DEFAULT_ADMIN_BACKEND_ORIGIN;
+        }
+
+        function buildAdminBackendUrl(path) {
+            const normalizedPath = String(path || '').startsWith('/') ? String(path || '') : `/${String(path || '')}`;
+            return `${getAdminBackendOrigin()}${normalizedPath}`;
+        }
+
+        function redirectToHostedAdminIfNeeded() {
+            const backendOrigin = getAdminBackendOrigin();
+            const currentOrigin = window.location.origin || '';
+            const protocol = window.location.protocol || '';
+            const shouldRedirect = !(protocol === 'http:' || protocol === 'https:') || currentOrigin !== backendOrigin;
+            if (!shouldRedirect) {
+                return;
+            }
+
+            const targetUrl = `${buildAdminBackendUrl('/admin')}?backend=${encodeURIComponent(backendOrigin)}`;
+            window.location.replace(targetUrl);
+        }
+
+        function syncAdminLinks() {
+            const logoutLink = document.getElementById('adminLogoutLink');
+            const mainSiteLink = document.getElementById('adminMainSiteLink');
+            if (logoutLink) {
+                logoutLink.href = buildAdminBackendUrl('/admin/logout');
+            }
+            if (mainSiteLink) {
+                mainSiteLink.href = buildAdminBackendUrl('/');
+            }
+        }
+
+        async function parseJsonResponse(response, fallbackMessage) {
+            const rawText = await response.text();
+            try {
+                return JSON.parse(rawText);
+            } catch (error) {
+                const compact = rawText.trim().slice(0, 80).toLowerCase();
+                if (compact.startsWith('<!doctype') || compact.startsWith('<html')) {
+                    if (rawText.toLowerCase().includes('admin login')) {
+                        const targetUrl = `${buildAdminBackendUrl('/admin/login')}?backend=${encodeURIComponent(getAdminBackendOrigin())}`;
+                        window.location.replace(targetUrl);
+                        throw new Error('Admin session expire ho gayi hai. Login page open ki ja rahi hai...');
+                    }
+                    throw new Error(fallbackMessage || 'Server ne HTML response diya. Server restart karke page refresh karein.');
+                }
+                throw new Error(fallbackMessage || 'Server response JSON format me nahi mila.');
+            }
+        }
+
+        function normalizeComplaintStatus(status) {
+            const value = String(status || '').trim().toLowerCase();
+            if (!value || value === 'pending' || value === 'open' || value === 'complaint registered') {
+                return 'Submitted';
+            }
+            if (value === 'in progress' || value === 'processing' || value === 'under review' || value === 'under investigation') {
+                return 'Processing';
+            }
+            if (value === 'resolved' || value === 'closed') {
+                return 'Resolved';
+            }
+            return String(status || '').trim() || 'Submitted';
+        }
+
+        function badgeClass(status) {
+            const value = normalizeComplaintStatus(status).toLowerCase();
+            if (value === 'resolved') return 'badge resolved';
+            if (value === 'processing') return 'badge processing';
+            return 'badge submitted';
+        }
+
+        function escapeHtml(value) {
+            return String(value == null ? '' : value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function renderStatusButtons(item) {
+            const currentStatus = normalizeComplaintStatus(item.status);
+            const isBusy = updatingComplaintIds.has(item.id);
+            const flow = ['Submitted', 'Processing', 'Resolved'];
+
+            return flow.map((status) => {
+                const normalized = status.toLowerCase();
+                const isActive = currentStatus === status;
+                const disabled = isBusy || isActive;
+                return `
+                    <button
+                        class="status-btn ${normalized} ${isActive ? 'active' : ''}"
+                        onclick="updateComplaintStatus(${item.id}, '${status}')"
+                        ${disabled ? 'disabled' : ''}
+                    >
+                        ${isBusy && !isActive ? 'Updating...' : status}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        async function updateComplaintStatus(complaintId, status) {
+            const complaint = allComplaints.find((item) => item.id === complaintId);
+            if (!complaint) {
+                setStatus('Complaint record nahi mila.', 'error');
+                return;
+            }
+
+            if (normalizeComplaintStatus(complaint.status) === status) {
+                setStatus(`Complaint already ${status} me hai.`, 'info');
+                return;
+            }
+
+            updatingComplaintIds.add(complaintId);
+            renderComplaints();
+            setStatus(`${complaint.tracking_code} ko ${status} me update kiya ja raha hai...`, 'info');
+
+            try {
+                const response = await fetch(buildAdminBackendUrl(`/api/admin/complaints/${complaintId}/status/`), {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: JSON.stringify({ status })
+                });
+                const data = await parseJsonResponse(
+                    response,
+                    'Status API se HTML response aaya. Server restart karke admin page dobara kholo.'
+                );
+                if (!response.ok) {
+                    throw new Error(data.error || 'Status update failed.');
+                }
+
+                const updatedComplaint = data.complaint || {};
+                allComplaints = allComplaints.map((item) => item.id === complaintId ? { ...item, ...updatedComplaint } : item);
+                updateStats(allComplaints);
+                setStatus(data.message || 'Complaint status updated successfully.', 'info');
+            } catch (error) {
+                setStatus(error.message || 'Complaint status update nahi ho paya.', 'error');
+            } finally {
+                updatingComplaintIds.delete(complaintId);
+                renderComplaints();
+            }
+        }
+
+        async function loadComplaints() {
+            setStatus('Loading complaint data from MySQL...', 'info');
+            try {
+                const response = await fetch(buildAdminBackendUrl('/api/admin/complaints/'), {
+                    credentials: 'include',
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                });
+                const data = await parseJsonResponse(
+                    response,
+                    'Complaint list API se HTML response aaya. Server restart karke admin login dobara karein.'
+                );
+                if (!response.ok) {
+                    throw new Error(data.error || 'Failed to load complaints');
+                }
+                allComplaints = data.complaints || [];
+                updateStats(allComplaints);
+                renderComplaints();
+                setStatus('Data loaded successfully.', 'info');
+            } catch (error) {
+                setStatus(error.message || 'Could not load complaint data.', 'error');
+            }
+        }
+
+        function updateStats(items) {
+            document.getElementById('totalCount').textContent = items.length;
+            document.getElementById('submittedCount').textContent = items.filter(item => normalizeComplaintStatus(item.status) === 'Submitted').length;
+            document.getElementById('processingCount').textContent = items.filter(item => normalizeComplaintStatus(item.status) === 'Processing').length;
+            document.getElementById('resolvedCount').textContent = items.filter(item => normalizeComplaintStatus(item.status) === 'Resolved').length;
+        }
+
+        function renderComplaints() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const filtered = allComplaints.filter(item => {
+                if (!query) return true;
+                return [
+                    item.tracking_code,
+                    item.name,
+                    item.phone,
+                    item.title,
+                    item.city,
+                    item.department
+                ].join(' ').toLowerCase().includes(query);
+            });
+
+            const tbody = document.getElementById('complaintsTableBody');
+            if (!filtered.length) {
+                tbody.innerHTML = '<tr><td colspan="10" class="muted">No complaints found for this filter.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = filtered.map(item => `
+                <tr>
+                    <td>${item.id}</td>
+                    <td><strong>${escapeHtml(item.tracking_code)}</strong></td>
+                    <td>
+                        <strong>${escapeHtml(item.name)}</strong><br>
+                        <span class="muted">${escapeHtml(item.email)}</span>
+                    </td>
+                    <td>${escapeHtml(item.phone)}</td>
+                    <td>
+                        <strong>${escapeHtml(item.title)}</strong><br>
+                        <span class="muted">${escapeHtml(item.category)} | ${escapeHtml(item.priority)} | ${escapeHtml(item.department)}</span>
+                    </td>
+                    <td>${escapeHtml(item.city)}, ${escapeHtml(item.state)}<br><span class="muted">PIN: ${escapeHtml(item.pincode)}</span></td>
+                    <td>
+                        <div class="status-flow">
+                            <span class="${badgeClass(item.status)}">${escapeHtml(normalizeComplaintStatus(item.status))}</span>
+                            <div class="status-actions">${renderStatusButtons(item)}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="row-delete-btn" onclick="deleteComplaint(${item.id})">Delete</button>
+                    </td>
+                    <td>${item.attachment_count}</td>
+                    <td>${escapeHtml(item.created_at)}</td>
+                </tr>
+            `).join('');
+        }
+
+        async function deleteComplaint(complaintId) {
+            const complaint = allComplaints.find((item) => item.id === complaintId);
+            if (!complaint) {
+                setStatus('Complaint record nahi mila.', 'error');
+                return;
+            }
+
+            const shouldContinue = window.confirm(`${complaint.tracking_code} complaint delete karni hai? Iske updates aur files bhi remove ho jayenge.`);
+            if (!shouldContinue) {
+                return;
+            }
+
+            setStatus(`${complaint.tracking_code} delete ki ja rahi hai...`, 'info');
+
+            try {
+                const response = await fetch(buildAdminBackendUrl(`/api/admin/complaints/${complaintId}/delete/`), {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                });
+                const data = await parseJsonResponse(
+                    response,
+                    'Delete API se HTML response aaya. Server restart karke admin page dobara kholo.'
+                );
+                if (!response.ok) {
+                    throw new Error(data.error || 'Complaint delete nahi ho payi.');
+                }
+
+                allComplaints = allComplaints.filter((item) => item.id !== complaintId);
+                updateStats(allComplaints);
+                renderComplaints();
+                setStatus(data.message || 'Complaint deleted successfully.', 'info');
+            } catch (error) {
+                setStatus(error.message || 'Complaint delete nahi ho payi.', 'error');
+            }
+        }
+
+        redirectToHostedAdminIfNeeded();
+        syncAdminLinks();
+        document.getElementById('searchInput').addEventListener('input', renderComplaints);
+        loadComplaints();
+    </script>
+</body>
+</html>

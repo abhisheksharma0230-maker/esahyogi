@@ -1,0 +1,173 @@
+{
+  "app": {
+    "title": "𝓮 𝓢𝓪𝓱𝔂𝓸𝓰𝓲 - పౌర ఫిర్యాదు పోర్టల్",
+    "subtitle": "భారత ప్రభుత్వం | డిజిటల్ ఇండియా కార్యక్రమం",
+    "tagline": "ʏᴏᴜʀ ᴠᴏɪᴄᴇ, ᴏᴜʀ ʀᴇꜱᴘᴏɴꜱɪʙɪʟɪᴛʏ"
+  },
+  "header": {
+    "home": "హోమ్",
+    "complaints": "ఫిర్యాదులు",
+    "track": "ట్రాక్",
+    "about": "మా గురించి",
+    "contact": "సంప్రదించండి",
+    "login": "లాగిన్",
+    "dashboard": "డాష్‌బోర్డ్"
+  },
+  "nav": {
+    "services": "సేవలు",
+    "team": "మా బృందం",
+    "trackStatus": "స్థితి ట్రాక్ చేయండి"
+  },
+  "hero": {
+    "title": "𝓮 𝓢𝓪𝓱𝔂𝓸𝓰𝓲 కు స్వాగతం",
+    "subtitle": "ʏᴏᴜʀ ᴠᴏɪᴄᴇ ᴍᴀᴛᴛᴇʀꜱ - ʀᴇᴘᴏʀᴛ, ᴛʀᴀᴄᴋ ᴀɴᴅ ʀᴇꜱᴏʟᴠᴇ ᴄɪᴠɪᴄ ɪꜱꜱᴜᴇꜱ ᴡɪᴛʜ ᴀɪ-ᴘᴏᴡᴇʀᴇᴅ ᴛᴇᴄʜɴᴏʟᴏɢʏ",
+    "fileComplaint": "ఫిర్యాదు నమోదు చేయండి",
+    "fileNewComplaint": "కొత్త ఫిర్యాదు నమోదు చేయండి",
+    "trackComplaint": "ఫిర్యాదును ట్రాక్ చేయండి",
+    "statistics": "గణాంకాలు"
+  },
+  "stats": {
+    "totalComplaints": "Total Complaints",
+    "resolved": "Resolved",
+    "pending": "Pending",
+    "avgResolutionTime": "Avg Resolution Time",
+    "days": "days"
+  },
+  "complaint": {
+    "form": {
+      "title": "File New Complaint",
+      "name": "Your Name",
+      "namePlaceholder": "Enter full name",
+      "email": "Email Address",
+      "emailPlaceholder": "your.email@example.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+91 XXXXX XXXXX",
+      "address": "Address",
+      "addressPlaceholder": "Enter complete address",
+      "category": "Select Category",
+      "categoryPlaceholder": "Choose complaint category",
+      "priority": "Priority",
+      "priorityPlaceholder": "Select priority level",
+      "description": "Complaint Description",
+      "descriptionPlaceholder": "Please provide detailed description of your complaint",
+      "location": "Location",
+      "locationPlaceholder": "Location of incident",
+      "attachments": "Attachments (Optional)",
+      "attachmentsHint": "Upload photos, videos or documents (Max 5 files, 10MB each)",
+      "submit": "Submit Complaint",
+      "submitting": "Submitting...",
+      "cancel": "Cancel"
+    },
+    "categories": {
+      "road": "Road & Transport",
+      "water": "Water Supply",
+      "electricity": "Electricity",
+      "garbage": "Garbage Management",
+      "drainage": "Drainage",
+      "streetlight": "Street Light",
+      "pollution": "Pollution",
+      "publicSafety": "Public Safety",
+      "corruption": "Corruption",
+      "other": "Other"
+    },
+    "priorities": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "urgent": "Urgent"
+    },
+    "status": {
+      "submitted": "Submitted",
+      "inProgress": "In Progress",
+      "resolved": "Resolved",
+      "closed": "Closed",
+      "rejected": "Rejected"
+    }
+  },
+  "track": {
+    "title": "Track Complaint",
+    "complaintId": "Complaint ID",
+    "complaintIdPlaceholder": "Enter your complaint ID",
+    "search": "Search",
+    "noResult": "No complaint found",
+    "details": "Complaint Details",
+    "timeline": "Timeline",
+    "updates": "Updates"
+  },
+  "dashboard": {
+    "welcome": "Welcome",
+    "myComplaints": "My Complaints",
+    "analytics": "Analytics",
+    "settings": "Settings",
+    "logout": "Logout",
+    "recentComplaints": "Recent Complaints",
+    "noComplaints": "No complaints found"
+  },
+  "admin": {
+    "login": "Admin Login"
+  },
+  "admin": {
+    "login": "అడ్మిన్ లాగిన్"
+  },
+  "messages": {
+    "success": "Success!",
+    "error": "Error!",
+    "complaintSubmitted": "Your complaint has been successfully registered",
+    "complaintId": "Complaint ID",
+    "trackingInfo": "Please save this ID for future reference",
+    "requiredField": "This field is required",
+    "invalidEmail": "Invalid email address",
+    "invalidPhone": "Invalid phone number",
+    "networkError": "Network error. Please try again",
+    "uploadError": "File upload failed",
+    "fileTooLarge": "File size should not exceed 10MB"
+  },
+  "footer": {
+    "about": "About Us",
+    "aboutText": "𝓮 𝓢𝓪𝓱𝔂𝓸𝓰𝓲 is a Digital India initiative that helps citizens connect with the government",
+    "quickLinks": "Quick Links",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "faq": "FAQ",
+    "contact": "Contact Us",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "copyright": "© 2025 𝓮 𝓢𝓪𝓱𝔂𝓸𝓰𝓲 - Government of India. All rights reserved.",
+    "digitalIndia": "Digital India"
+  },
+  "common": {
+    "loading": "Loading...",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "download": "Download",
+    "print": "Print",
+    "share": "Share",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "viewMore": "View More",
+    "viewLess": "View Less",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "settings": {
+    "language": "Language",
+    "theme": "Theme",
+    "light": "Light Mode",
+    "dark": "Dark Mode",
+    "notifications": "Notifications",
+    "emailNotifications": "Email Notifications",
+    "smsNotifications": "SMS Notifications",
+    "profile": "Profile",
+    "changePassword": "Change Password",
+    "security": "Security"
+  }
+}

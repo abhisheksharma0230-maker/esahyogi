@@ -1,0 +1,184 @@
+{
+  "app": {
+    "title": "𝒆 𝑺𝒂𝒉𝒚𝒐𝒈𝒊 - Citizen Complaint Portal",
+    "subtitle": "भारत सरकार | Digital India Initiative",
+    "tagline": "ʏᴏᴜʀ ᴠᴏɪᴄᴇ, ᴏᴜʀ ʀᴇꜱᴘᴏɴꜱɪʙɪʟɪᴛʏ"
+  },
+  "header": {
+    "home": "Home",
+    "complaints": "शिकायतें",
+    "track": "Track करें",
+    "about": "About Us",
+    "contact": "Contact करें",
+    "login": "Login",
+    "dashboard": "Dashboard"
+  },
+  "nav": {
+    "services": "Services",
+    "team": "Our Team",
+    "trackStatus": "Status Track करें"
+  },
+  "hero": {
+    "title": "𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝒆 𝑺𝒂𝒉𝒚𝒐𝒈𝒊",
+    "subtitle": "ʏᴏᴜʀ ᴠᴏɪᴄᴇ ᴍᴀᴛᴛᴇʀꜱ - ʀᴇᴘᴏʀᴛ, ᴛʀᴀᴄᴋ ᴀɴᴅ ʀᴇꜱᴏʟᴠᴇ ᴄɪᴠɪᴄ ɪꜱꜱᴜᴇꜱ ᴡɪᴛʜ ᴀɪ-ᴘᴏᴡᴇʀᴇᴅ ᴛᴇᴄʜɴᴏʟᴏɢʏ",
+    "fileComplaint": "Complaint File करें",
+    "fileNewComplaint": "Nayi Complaint File करें",
+    "trackComplaint": "Complaint Track करें",
+    "statistics": "Statistics"
+  },
+  "stats": {
+    "totalComplaints": "Total शिकायतें",
+    "resolved": "Resolved",
+    "pending": "Pending",
+    "avgResolutionTime": "Average Resolution Time",
+    "days": "दिन"
+  },
+  "complaint": {
+    "form": {
+      "title": "Nayi Complaint File करें",
+      "subtitle": "Kripya complaint ki detailed information form mein bharein",
+      "userDetails": "Aapki Details",
+      "name": "Aapka Naam",
+      "namePlaceholder": "Full name enter करें",
+      "email": "Email Address",
+      "emailPlaceholder": "your.email@example.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "10 digit mobile number",
+      "state": "State",
+      "city": "City",
+      "pincode": "PIN Code",
+      "pincodePlaceholder": "6-digit pincode enter करें",
+      "area": "Area",
+      "areaPlaceholder": "Area enter करें ya PIN code se auto-fill hoga",
+      "complaintTitle": "Complaint Title",
+      "complaintTitlePlaceholder": "Issue ka short description",
+      "address": "Complaint Address",
+      "addressPlaceholder": "Complete complaint address enter karein",
+      "category": "Category",
+      "categoryPlaceholder": "Complaint category choose करें",
+      "priority": "Priority Level",
+      "priorityPlaceholder": "Priority level select करें",
+      "department": "Department",
+      "description": "Complaint Description",
+      "descriptionPlaceholder": "Kripya apni complaint ka detailed description dein... ya mic dabakar bolen",
+      "location": "Location",
+      "locationPlaceholder": "Incident ka location",
+      "attachments": "Supporting Files",
+      "attachmentsHint": "Photos, videos ya documents upload करें (Max 5 files, 10MB each)",
+      "securityVerification": "Security Verification",
+      "captchaPlaceholder": "Upar diya gaya code enter करें",
+      "submit": "Complaint Submit करें",
+      "submitting": "Submitting हो रहा है...",
+      "reset": "Form Reset करें",
+      "cancel": "Cancel करें"
+    },
+    "categories": {
+      "road": "Road aur Transport",
+      "water": "Water Supply",
+      "electricity": "Electricity",
+      "garbage": "Garbage Management",
+      "drainage": "Drainage",
+      "streetlight": "Street Light",
+      "pollution": "Pollution",
+      "publicSafety": "Public Safety",
+      "corruption": "Corruption",
+      "other": "Other"
+    },
+    "priorities": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "urgent": "Urgent"
+    },
+    "status": {
+      "submitted": "Submitted",
+      "inProgress": "In Progress",
+      "resolved": "Resolved",
+      "closed": "Closed",
+      "rejected": "Rejected"
+    }
+  },
+  "track": {
+    "title": "Complaint Track करें",
+    "complaintId": "Complaint ID",
+    "complaintIdPlaceholder": "Apni complaint ID enter करें",
+    "search": "Search करें",
+    "noResult": "Koi complaint nahi mili",
+    "details": "Complaint Details",
+    "timeline": "Timeline",
+    "updates": "Updates"
+  },
+  "dashboard": {
+    "welcome": "Welcome",
+    "myComplaints": "Meri शिकायतें",
+    "analytics": "Analytics",
+    "settings": "Settings",
+    "logout": "Logout",
+    "recentComplaints": "Recent शिकायतें",
+    "noComplaints": "Koi complaint nahi mili"
+  },
+  "admin": {
+    "login": "Admin Login"
+  },
+  "messages": {
+    "success": "Success!",
+    "error": "Error!",
+    "complaintSubmitted": "Aapki complaint successfully file ho gayi hai",
+    "complaintId": "Complaint ID",
+    "trackingInfo": "Kripya future reference ke liye is ID ko save karein",
+    "requiredField": "Yeh field required hai",
+    "invalidEmail": "Invalid email address",
+    "invalidPhone": "Invalid phone number",
+    "networkError": "Network error. Kripya phir se try karein",
+    "uploadError": "File upload fail ho gaya",
+    "fileTooLarge": "File size 10MB se zyada nahi hona chahiye"
+  },
+  "footer": {
+    "about": "About Us",
+    "aboutText": "𝒆 𝑺𝒂𝒉𝒚𝒐𝒈𝒊 ek Digital India initiative hai jo citizens ko government ke saath connect karne mein help karti hai",
+    "quickLinks": "Quick Links",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "faq": "FAQ",
+    "contact": "Contact करें",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "copyright": "© 2025 𝒆 𝑺𝒂𝒉𝒚𝒐𝒈𝒊 - भारत सरकार. All Rights Reserved.",
+    "digitalIndia": "Digital India"
+  },
+  "common": {
+    "loading": "Loading हो रहा है...",
+    "search": "Search करें",
+    "filter": "Filter करें",
+    "sort": "Sort करें",
+    "download": "Download करें",
+    "print": "Print करें",
+    "share": "Share करें",
+    "edit": "Edit करें",
+    "delete": "Delete करें",
+    "save": "Save करें",
+    "cancel": "Cancel करें",
+    "confirm": "Confirm करें",
+    "close": "Close करें",
+    "back": "Back जाएं",
+    "next": "Next",
+    "previous": "Previous",
+    "viewMore": "Aur dekhein",
+    "viewLess": "Kam dekhein",
+    "yes": "Haan",
+    "no": "Nahi"
+  },
+  "settings": {
+    "language": "Language",
+    "theme": "Theme",
+    "light": "Light Mode",
+    "dark": "Dark Mode",
+    "notifications": "Notifications",
+    "emailNotifications": "Email Notifications",
+    "smsNotifications": "SMS Notifications",
+    "profile": "Profile",
+    "changePassword": "Password Change करें",
+    "security": "Security"
+  }
+}
