@@ -17,13 +17,14 @@ from urllib import request as urllib_request
 
 from flask import Flask, jsonify, make_response, redirect, render_template_string, request, send_from_directory, session, url_for
 import mysql.connector
-from mysql.connector import Error
+from mysql.connector import Error, errorcode
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from backend_config import (
     ADMIN_PASSWORD,
     ADMIN_USERNAME,
     DB_CONFIG,
+    DB_FALLBACK_DATABASES,
     MAX_FILE_SIZE,
     ROOT_DIR,
     SECRET_KEY,
@@ -89,6 +90,32 @@ OFFICER_ACCOUNTS = {
 
 
 def get_db_connection():
+    attempted_configs: list[dict[str, Any]] = []
+    seen_databases: set[str] = set()
+
+    for database_name in (DB_CONFIG.get("database"), *DB_FALLBACK_DATABASES):
+        normalized_name = str(database_name or "").strip()
+        if not normalized_name or normalized_name in seen_databases:
+            continue
+        seen_databases.add(normalized_name)
+        connection_config = dict(DB_CONFIG)
+        connection_config["database"] = normalized_name
+        attempted_configs.append(connection_config)
+
+    last_error: Error | None = None
+    for connection_config in attempted_configs:
+        try:
+            connection = mysql.connector.connect(**connection_config)
+            DB_CONFIG["database"] = connection_config["database"]
+            return connection
+        except Error as exc:
+            last_error = exc
+            if getattr(exc, "errno", None) != errorcode.ER_BAD_DB_ERROR:
+                raise
+
+    if last_error is not None:
+        raise last_error
+
     return mysql.connector.connect(**DB_CONFIG)
 
 

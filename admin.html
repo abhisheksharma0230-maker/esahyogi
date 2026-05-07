@@ -357,6 +357,8 @@
         let allComplaints = [];
         const updatingComplaintIds = new Set();
         const DEFAULT_ADMIN_BACKEND_ORIGIN = 'http://127.0.0.1:5050';
+        const ADMIN_BACKEND_STORAGE_KEY = 'esahyogiBackendOrigin';
+        const KNOWN_BACKEND_PORTS = new Set(['5000', '5050', '5070']);
 
         function setStatus(message, type) {
             const box = document.getElementById('statusBox');
@@ -371,16 +373,51 @@
             return trimmed;
         }
 
+        function isLikelyBackendOrigin(value) {
+            const normalized = normalizeBackendOrigin(value);
+            if (!normalized) return false;
+            try {
+                const parsed = new URL(normalized);
+                return ['127.0.0.1', 'localhost'].includes(parsed.hostname) && KNOWN_BACKEND_PORTS.has(parsed.port);
+            } catch (error) {
+                return false;
+            }
+        }
+
+        function rememberBackendOrigin(value) {
+            const normalized = normalizeBackendOrigin(value);
+            if (!normalized) return '';
+            try {
+                localStorage.setItem(ADMIN_BACKEND_STORAGE_KEY, normalized);
+            } catch (error) {
+                // Ignore storage errors and continue with the current value.
+            }
+            return normalized;
+        }
+
         function getAdminBackendOrigin() {
             const urlParams = new URLSearchParams(window.location.search);
-            const urlOverride = normalizeBackendOrigin(urlParams.get('backend'));
-            if (urlOverride) {
-                return urlOverride;
-            }
+            const candidates = [
+                urlParams.get('backend'),
+                (() => {
+                    try {
+                        return localStorage.getItem(ADMIN_BACKEND_STORAGE_KEY);
+                    } catch (error) {
+                        return '';
+                    }
+                })(),
+                isLikelyBackendOrigin(window.location.origin) ? window.location.origin : '',
+                DEFAULT_ADMIN_BACKEND_ORIGIN,
+                'http://127.0.0.1:5070',
+                'http://127.0.0.1:5000'
+            ];
 
-            const protocol = window.location.protocol || '';
-            if (protocol === 'http:' || protocol === 'https:') {
-                return window.location.origin;
+            for (const candidate of candidates) {
+                const normalized = normalizeBackendOrigin(candidate);
+                if (!normalized) {
+                    continue;
+                }
+                return rememberBackendOrigin(normalized);
             }
 
             return DEFAULT_ADMIN_BACKEND_ORIGIN;
